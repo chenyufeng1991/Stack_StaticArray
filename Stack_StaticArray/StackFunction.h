@@ -11,10 +11,10 @@
 #include <stdio.h>
 
 void createStack(int size);
-void destroyStack(void);
+void destroyStack();
 void push(int value);
-void pop(void);
-int top(void);
-int isEmpty(void);
-int isFull(void);
-void printStack(void);
+void pop();
+int top();
+int isEmpty();
+int isFull();
+void printStack();

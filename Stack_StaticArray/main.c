@@ -22,14 +22,14 @@ void push(int value){
     }
 }
 
-void pop(void){
+void pop(){
 
     if (!isEmpty()) {
         top_element--;
     }
 }
 
-int top(void){
+int top(){
     if (!isEmpty()) {
         return stack[top_element];
     }
@@ -37,17 +37,17 @@ int top(void){
     return -32768;
 }
 
-int isEmpty(void){
+int isEmpty(){
 
     return top_element == -1;
 }
 
-int isFull(void){
+int isFull(){
 
     return top_element == STACK_SIZE - 1;
 }
 
-void printStack(void){
+void printStack(){
 
     int i = top_element;
     printf("%s函数执行，打印出静态数组栈里面的值：\n",__FUNCTION__);
