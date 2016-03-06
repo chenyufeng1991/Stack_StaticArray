@@ -6,6 +6,9 @@
 //  Copyright © 2016年 chenyufengweb. All rights reserved.
 //
 
+/**
+ *  使用静态数组来构造栈结构
+ */
 #include <stdio.h>
 #include "StackFunction.h"
 
@@ -13,6 +16,23 @@
 
 static int stack[STACK_SIZE];
 static int top_element = -1;
+
+//创建栈，默认输入非正数时停止
+void createStack(){
+
+    int size = 1;
+    int elem;
+
+    printf("请输入元素来构造栈\n");
+    scanf("%d",&elem);
+    while (size < STACK_SIZE && elem > 0) {
+        stack[++top_element] = elem;
+        size++;
+        scanf("%d",&elem);
+    }
+
+    printf("%s函数执行，使用静态数组构造栈成功\n",__FUNCTION__);
+}
 
 void push(int value){
     if (!isFull()) {
@@ -63,7 +83,9 @@ void printStack(){
 
 int main(int argc, const char * argv[]) {
 
+    createStack();
     printStack();
+/*
     push(4);push(6);push(1);push(9);push(2);
     printStack();
     printf("\n");
@@ -73,8 +95,8 @@ int main(int argc, const char * argv[]) {
     printStack();
     printf("\n");
 
-    printf("top元素的值:%d\n",top());
-
+  printf("top元素的值:%d\n",top());
+*/
     return 0;
 }
 
