@@ -12,26 +12,27 @@
 #include <stdio.h>
 #include "StackFunction.h"
 
-#define STACK_SIZE 100
+#define STACK_SIZE 5
 
 static int stack[STACK_SIZE];
 static int top_element = -1;
 
-//创建栈，默认输入非正数时停止
-void createStack(){
+//创建栈，默认输入非正数时停止.构造成功返回1，否则返回0；
+int createStack(){
 
     int size = 1;
     int elem;
 
     printf("请输入元素来构造栈\n");
     scanf("%d",&elem);
-    while (size < STACK_SIZE && elem > 0) {
+    while (size <= STACK_SIZE && elem > 0) {
         stack[++top_element] = elem;
         size++;
         scanf("%d",&elem);
     }
 
     printf("%s函数执行，使用静态数组构造栈成功\n",__FUNCTION__);
+    return 1;
 }
 
 void push(int value){

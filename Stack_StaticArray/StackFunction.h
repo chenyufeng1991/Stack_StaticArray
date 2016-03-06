@@ -10,7 +10,7 @@
 
 #include <stdio.h>
 
-void createStack();
+int createStack();
 void destroyStack();
 void push(int value);
 void pop();
