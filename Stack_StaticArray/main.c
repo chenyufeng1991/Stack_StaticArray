@@ -17,39 +17,21 @@
 static int stack[STACK_SIZE];
 static int top_element = -1;
 
-//创建栈，默认输入非正数时停止.构造成功返回1，否则返回0；
-int createStack(){
-
-    int size = 1;
-    int elem;
-
-    printf("请输入元素来构造栈\n");
-    scanf("%d",&elem);
-    while (size <= STACK_SIZE && elem > 0) {
-        stack[++top_element] = elem;
-        size++;
-        scanf("%d",&elem);
-    }
-
-    printf("%s函数执行，使用静态数组构造栈成功\n",__FUNCTION__);
-    return 1;
-}
-
+//压入元素
 void push(int value){
     if (!isFull()) {
-        //还没有满
-        top_element++;
-        stack[top_element] = value;
+        stack[++top_element] = value;
     }
 }
 
+//弹出元素
 void pop(){
-
     if (!isEmpty()) {
         top_element--;
     }
 }
 
+//取顶部元素
 int top(){
     if (!isEmpty()) {
         return stack[top_element];
@@ -58,16 +40,17 @@ int top(){
     return -32768;
 }
 
+//判断栈是否为空
 int isEmpty(){
-
     return top_element == -1;
 }
 
+//判断栈是否已满
 int isFull(){
-
     return top_element == STACK_SIZE - 1;
 }
 
+//从顶部开始打印栈元素
 void printStack(){
 
     int i = top_element;
@@ -84,20 +67,17 @@ void printStack(){
 
 int main(int argc, const char * argv[]) {
 
-    createStack();
-    printStack();
-/*
-    push(4);push(6);push(1);push(9);push(2);
+    push(4);push(6);push(1);push(9);push(2);push(8);
     printStack();
     printf("\n");
 
-    pop();pop();
-    printf("经过pop后栈的元素为:");
+    pop();pop();pop();pop();
+    printf("经过pop后栈的元素为:\n");
     printStack();
     printf("\n");
 
-  printf("top元素的值:%d\n",top());
-*/
+    printf("top元素的值:%d\n",top());
+
     return 0;
 }
 
