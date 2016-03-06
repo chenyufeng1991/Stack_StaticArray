@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "StackFunction.h"
 
-#define STACK_SIZE 5
+#define STACK_SIZE 50
 
 static int stack[STACK_SIZE];
 static int top_element = -1;
